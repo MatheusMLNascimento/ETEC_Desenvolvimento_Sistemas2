@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    padding-top: 1px;
+    text-align: center;
+    font-size: 19px;
+    border-bottom: 1px solid black;
+    flex-flow: row ;
+    justify-content: space-evenly;
+}
+
+p{
+    border: 2px solid rgb(255, 83, 83);
+    color: white;
+    border-radius: 10px;
+    background-color: lightcoral;
+    padding: 3px;
+}

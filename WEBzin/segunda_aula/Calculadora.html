@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora básica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 id="titulo">Calculadora Online</h1>
+    <label for="operation">Digite a operação desejada:</label>
+    <input type="text" id="selector">
+
+    <p>1 - Soma <br>2 - Subtração <br>3 - Multiplicação <br>4 - Divisão <br>5 - Potência <br>6 - Raíz(Só usa o primeiro número)</p>
+
+    <div id="nums">
+    <label for="n1">1º número:</label>
+    <input type="text" id="n1">
+
+    <label for="n2">2º número:</label>
+    <input type="text" id="n2"><br>
+    </div>
+
+    <button onclick="matematico()">Resultado</button>
+    <div id="resultado"></div>
+
+    <script type="text/javascript" src="Calculadora.js"></script>
+
+    
+</body>
+</html>
