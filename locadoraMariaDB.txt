@@ -1,0 +1,175 @@
+MariaDB [(none)]> create database locadora;
+
+MariaDB [(none)]> use locadora;
+
+MariaDB [locadora]> create table ceps(
+    -> id_cep int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> cep int(8));
+
+MariaDB [locadora]> create table clientes(
+    -> id_cliente int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> nome varchar(50),
+    -> end varchar(50),
+    -> cidade varchar(20),
+    -> uf varchar(2),
+    -> id_cep int,
+    -> FOREIGN KEY (id_cep) REFERENCES ceps(id_cep),
+    -> celular int,
+    -> rg int,
+    -> cpf int,
+    -> email varchar(50));
+
+MariaDB [locadora]> create table carros(
+    -> id_carro int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> modelo varchar(50),
+    -> marca varchar(50),
+    -> cor varchar(10),
+    -> km int);
+
+MariaDB [locadora]> show tables;
++--------------------+
+| Tables_in_locadora |
++--------------------+
+| carros             |
+| ceps               |
+| clientes           |
++--------------------+
+
+MariaDB [locadora]> create table cargos(
+    -> id_cargo int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> descricao varchar(50));
+
+MariaDB [locadora]> create table funcionarios(
+    -> id_funcionario int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> nome varchar(50),
+    -> end varchar(50),
+    -> id_cep int,
+    -> FOREIGN KEY (id_cep) REFERENCES ceps(id_cep),
+    -> cidade varchar(50),
+    -> uf varchar(2),
+    -> celular int,
+    -> rg int,
+    -> cpf int,
+    -> email varchar(50),
+    -> id_cargo int,
+    -> FOREIGN KEY (id_cargo) REFERENCES cargos(id_cargo));
+
+MariaDB [locadora]> create table tipo_pagamento(
+    -> id_pagamento int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> descricao varchar(50));
+
+MariaDB [locadora]> create table lojas(
+    -> id_loja int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> nome varchar(50),
+    -> end varchar(50),
+    -> cidade varchar(50),
+    -> id_cep int,
+    -> FOREIGN KEY (id_cep) REFERENCES ceps(id_cep),
+    -> telefone int);
+
+MariaDB [locadora]> create table locacoes(
+    -> id_locacao int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -> id_cliente int,
+    -> id_loja int,
+    -> id_pagamento int,
+    -> id_carro int,
+    -> id_funcionario int,
+    -> FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    -> FOREIGN KEY (id_loja) REFERENCES lojas(id_loja),
+    -> FOREIGN KEY (id_pagamento) REFERENCES tipo_pagamento(id_pagamento),
+    -> FOREIGN KEY (id_carro) REFERENCES carros(id_carro),
+    -> FOREIGN KEY (id_funcionario) REFERENCES funcionarios(id_funcionario),
+    -> valor float,
+    -> data varchar(12));
+
+MariaDB [locadora]> show tables;
++--------------------+
+| Tables_in_locadora |
++--------------------+
+| cargos             |
+| carros             |
+| ceps               |
+| clientes           |
+| funcionarios       |
+| locacoes           |
+| lojas              |
+| tipo_pagamento     |
++--------------------+
+
+MariaDB [locadora]> describe cargos;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id_cargo  | int(11)     | NO   | PRI | NULL    | auto_increment |
+| descricao | varchar(50) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+MariaDB [locadora]> describe carros;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id_carro | int(11)     | NO   | PRI | NULL    | auto_increment |
+| modelo   | varchar(50) | YES  |     | NULL    |                |
+| marca    | varchar(50) | YES  |     | NULL    |                |
+| cor      | varchar(10) | YES  |     | NULL    |                |
+| km       | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+MariaDB [locadora]> describe ceps;
++--------+---------+------+-----+---------+----------------+
+| Field  | Type    | Null | Key | Default | Extra          |
++--------+---------+------+-----+---------+----------------+
+| id_cep | int(11) | NO   | PRI | NULL    | auto_increment |
+| cep    | int(8)  | YES  |     | NULL    |                |
++--------+---------+------+-----+---------+----------------+
+
+
+MariaDB [locadora]> describe clientes;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id_cliente | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome       | varchar(50) | YES  |     | NULL    |                |
+| end        | varchar(50) | YES  |     | NULL    |                |
+| cidade     | varchar(20) | YES  |     | NULL    |                |
+| uf         | varchar(2)  | YES  |     | NULL    |                |
+| id_cep     | int(11)     | YES  | MUL | NULL    |                |
+| celular    | int(11)     | YES  |     | NULL    |                |
+| rg         | int(11)     | YES  |     | NULL    |                |
+| cpf        | int(11)     | YES  |     | NULL    |                |
+| email      | varchar(50) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+MariaDB [locadora]> describe locacoes;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id_locacao     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| id_cliente     | int(11)     | YES  | MUL | NULL    |                |
+| id_loja        | int(11)     | YES  | MUL | NULL    |                |
+| id_pagamento   | int(11)     | YES  | MUL | NULL    |                |
+| id_carro       | int(11)     | YES  | MUL | NULL    |                |
+| id_funcionario | int(11)     | YES  | MUL | NULL    |                |
+| valor          | float       | YES  |     | NULL    |                |
+| data           | varchar(12) | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+MariaDB [locadora]> describe lojas;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id_loja  | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome     | varchar(50) | YES  |     | NULL    |                |
+| end      | varchar(50) | YES  |     | NULL    |                |
+| cidade   | varchar(50) | YES  |     | NULL    |                |
+| id_cep   | int(11)     | YES  | MUL | NULL    |                |
+| telefone | int(11)     | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+MariaDB [locadora]> describe tipo_pagamento;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| id_pagamento | int(11)     | NO   | PRI | NULL    | auto_increment |
+| descricao    | varchar(50) | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
