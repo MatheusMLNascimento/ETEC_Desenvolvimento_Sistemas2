@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de fotos</title>
+    <link rel="stylesheet" href="galeria.css">
+</head>
+<body>
+
+    <div class="imgMain">
+        <img id="main" src="/atividade 5/img/A.jpg" alt="">
+    </div>
+
+    
+    <div class="galeria">
+        <button onclick="retroceder('main')" class="nav"> ← </button>
+        <div id="img1">
+            <button onclick="selecionar('img1')">
+                <img src="/atividade 5/img/A.jpg" alt="">
+            </button>
+        </div>
+        <div id="img2">
+            <button onclick="selecionar('img2')">
+                <img src="/atividade 5/img/B.jpg" alt="">
+            </button>
+            
+        </div>
+        <div id="img3">
+            <button onclick="selecionar('img3')">
+                <img src="/atividade 5/img/R.jpg" alt="">
+            </button>
+            
+        </div>
+        <div id="img4">
+            <button onclick="selecionar('img4')">
+                <img src="/atividade 5/img/Free-1366x768-Backgrounds.jpg" alt="">
+            </button>
+            
+        </div>
+        <div id="img5">
+            <button onclick="selecionar('img5')">
+                <img src="/atividade 5/img/W4KVQA.jpg" alt="">
+            </button>
+        </div>
+        <button onclick="avancar('main')" class="nav"> → </button>
+    </div>
+
+    <script type="text/javascript" src="galeria.js"></script>
+</body>
+</html>

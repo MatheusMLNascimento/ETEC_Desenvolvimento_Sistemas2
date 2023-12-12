@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color:beige;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.parks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    border: 5px solid lightslategray;
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+button{
+    border: none;
+}
+
+.cachorro{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 5px solid lightblue;
+    background-color: lightblue;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    border: 2px solid rgb(118, 185, 207);
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(131, 196, 218);
+}

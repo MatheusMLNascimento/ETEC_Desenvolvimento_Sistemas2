@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+    
+    <form action="" method="get"> 
+        <fieldset>
+            <legend> Valida Formulário </legend>
+            <div class="nome">
+                <label for="name"> Nome: </label>
+                <input name="name" id="nome" type="text" placeholder="maria aparecida" required>
+            </div>
+            <div class="email">
+                <label for="email"> Email: </label>
+                <input type="text" name="email" id="e_mail" placeholder="exemplo@gmail.com" required>
+            </div>
+            <div class="telefone">
+                <label for="tel"> Tel: </label>
+                <input type="text" name="tel" id="tel" placeholder="(xx) xxxxx-xxxx" required>
+            </div>
+        </fieldset>
+        <button onclick="validaFormulario()" id="valida"> Enviar </button>
+    </form>
+
+    <script type="text/javascript" src="forms.js"></script>
+</body>
+</html>

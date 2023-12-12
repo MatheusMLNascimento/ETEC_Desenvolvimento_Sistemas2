@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(255, 248, 238);
+}
+
+h1{
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 25px;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#showBox{
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 15px;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+}
+
+button{
+    border-radius: 15px;
+    width: fit-content;
+    height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: bisque;
+    margin: 15px 5px;
+}
+
+.buttons{
+    text-align: center;
+}
