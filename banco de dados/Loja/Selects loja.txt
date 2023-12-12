@@ -1,0 +1,35 @@
+SELECT clientes.nome, clientes.cpf, clientes.rg, clientes.data_nascimento, clientes.telefone, clientes.end, ceps.descricao, cidades.nome, ufs.descrisao, clientes.email 
+FROM `clientes`, `ceps`, `cidades`, `ufs`
+WHERE clientes.id_cep = ceps.id_cep
+AND clientes.id_cidade = cidades.id_cidade
+AND clientes.id_uf = ufs.id_uf;
+
+====================================================================================================
+
+SELECT fornecedores.nome, fornecedores.cnpj, ceps.descricao, cidades.nome, ufs.descrisao
+FROM fornecedores, ceps, cidades, ufs
+WHERE fornecedores.id_cep = ceps.id_cep
+AND fornecedores.id_cidade = cidades.id_cidade
+AND fornecedores.id_uf = ufs.id_uf;
+
+====================================================================================================
+
+SELECT produtos.nome, produtos.validade, produtos.qtd, produtos.valor, marcas.nome, fornecedores.nome
+FROM produtos, marcas, fornecedores
+WHERE produtos.id_marca = marcas.id_marca
+AND produtos.id_fornecedor = fornecedores.id_fornecedor;
+
+====================================================================================================
+
+SELECT clientes.nome, clientes.cpf, clientes.telefone, produtos.nome, vendas.data, itens_venda.qtd
+FROM clientes, produtos, vendas, itens_venda
+WHERE vendas.id_venda = itens_venda.id_venda
+AND vendas.id_cliente = clientes.id_cliente
+AND itens_venda.id_produto = produtos.id_produto
+
+====================================================================================================
+
+SELECT ceps.descricao, cidades.nome, ufs.descrisao
+FROM ceps, cidades, ufs
+WHERE ceps.id_cep = cidades.id_cidade
+AND ceps.id_cep = ufs.id_uf

@@ -1,0 +1,200 @@
+CREATE TABLE `ceps` (
+	`id_cep` int NOT NULL AUTO_INCREMENT,
+	`descricao` varchar(50) NOT NULL,
+	PRIMARY KEY (`id_cep`)
+);
+
+====================================================================================================
+
+CREATE TABLE `cidades` (
+	`id_cidade` int NOT NULL AUTO_INCREMENT,
+	`nome` varchar(100) NOT NULL,
+	PRIMARY KEY (`id_cidade`)
+);
+
+====================================================================================================
+
+CREATE TABLE `ufs` (
+	`id_uf` int NOT NULL AUTO_INCREMENT,
+	`descrisao` varchar(10) NOT NULL,
+	PRIMARY KEY (`id_uf`)
+);
+
+====================================================================================================
+
+CREATE TABLE `marcas` (
+	`id_marca` int NOT NULL AUTO_INCREMENT,
+	`nome` varchar(255) NOT NULL,
+	PRIMARY KEY (`id_marca`)
+);
+
+====================================================================================================
+
+CREATE TABLE `fornecedores` (
+	`id_fornecedor` int NOT NULL AUTO_INCREMENT,
+	`nome` varchar(100) NOT NULL,
+	`cnpj` varchar(50) NOT NULL,
+	`id_cep` int NOT NULL,
+	`id_cidade` int NOT NULL,
+	`id_uf` int NOT NULL,
+	PRIMARY KEY (`id_fornecedor`)
+);
+
+====================================================================================================
+
+CREATE TABLE `clientes` (
+	`id_cliente` int NOT NULL AUTO_INCREMENT,
+	`nome` varchar(100) NOT NULL,
+	`cpf` varchar(30) NOT NULL,
+	`rg` varchar(30) NOT NULL,
+	`data_nascimento` DATE NOT NULL,
+	`telefone` varchar(30) NOT NULL,
+	`end` varchar(100) NOT NULL,
+	`id_cep` int NOT NULL,
+	`id_cidade` int NOT NULL,
+	`id_uf` int NOT NULL,
+	`email` varchar(255) NOT NULL,
+	PRIMARY KEY (`id_cliente`)
+);
+
+====================================================================================================
+
+CREATE TABLE `produtos` (
+	`id_produto` int NOT NULL AUTO_INCREMENT,
+	`nome` varchar(100) NOT NULL,
+	`descricao` varchar(255) NOT NULL,
+	`validade` DATE NOT NULL,
+	`qtd` int NOT NULL,
+	`valor` real NOT NULL,
+	`id_marca` int NOT NULL,
+	`id_fornecedor` int NOT NULL,
+	PRIMARY KEY (`id_produto`)
+);
+
+====================================================================================================
+
+CREATE TABLE `itens_venda` (
+	`id_item` int NOT NULL AUTO_INCREMENT,
+	`id_produto` int NOT NULL,
+	`id_venda` int NOT NULL,
+	`qtd` int NOT NULL,
+	PRIMARY KEY (`id_item`)
+);
+
+====================================================================================================
+
+CREATE TABLE `vendas` (
+	`id_venda` int NOT NULL AUTO_INCREMENT,
+	`id_cliente` int NOT NULL,
+	`data` DATE NOT NULL,
+	PRIMARY KEY (`id_venda`)
+);
+
+====================================================================================================
+
+ALTER TABLE `fornecedores` ADD CONSTRAINT `fornecedores_fk0` FOREIGN KEY (`id_cep`) REFERENCES `ceps`(`id_cep`);
+
+====================================================================================================
+
+ALTER TABLE `fornecedores` ADD CONSTRAINT `fornecedores_fk1` FOREIGN KEY (`id_cidade`) REFERENCES `cidades`(`id_cidade`);
+
+====================================================================================================
+
+ALTER TABLE `fornecedores` ADD CONSTRAINT `fornecedores_fk2` FOREIGN KEY (`id_uf`) REFERENCES `ufs`(`id_uf`);
+
+====================================================================================================
+
+ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk0` FOREIGN KEY (`id_cep`) REFERENCES `ceps`(`id_cep`);
+
+====================================================================================================
+
+ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk1` FOREIGN KEY (`id_cidade`) REFERENCES `cidades`(`id_cidade`);
+
+====================================================================================================
+
+ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk2` FOREIGN KEY (`id_uf`) REFERENCES `ufs`(`id_uf`);
+
+====================================================================================================
+
+ALTER TABLE `produtos` ADD CONSTRAINT `produtos_fk0` FOREIGN KEY (`id_marca`) REFERENCES `marcas`(`id_marca`);
+
+====================================================================================================
+
+ALTER TABLE `produtos` ADD CONSTRAINT `produtos_fk1` FOREIGN KEY (`id_fornecedor`) REFERENCES `fornecedores`(`id_fornecedor`);
+
+====================================================================================================
+
+ALTER TABLE `itens_venda` ADD CONSTRAINT `itens_venda_fk0` FOREIGN KEY (`id_produto`) REFERENCES `produtos`(`id_produto`);
+
+====================================================================================================
+
+ALTER TABLE `itens_venda` ADD CONSTRAINT `itens_venda_fk1` FOREIGN KEY (`id_venda`) REFERENCES `vendas`(`id_venda`);
+
+====================================================================================================
+
+ALTER TABLE `vendas` ADD CONSTRAINT `vendas_fk0` FOREIGN KEY (`id_cliente`) REFERENCES `clientes`(`id_cliente`);
+
+====================================================================================================
+
+INSERT INTO `ceps`(`id_cep`, `descricao`) 
+VALUES ('1', '13033035'), ('2', '04323180'), ('3', '13033010'), ('4', '04323110'), ('5', '21031700');
+
+====================================================================================================
+
+INSERT INTO `cidades`(`id_cidade`, `nome`) 
+VALUES ('1', 'campinas'), ('2', 'rio de janeiro'), ('3', 'salvador'), ('4', 'góias'), ('5', 'piracicaba');
+
+====================================================================================================
+
+INSERT INTO `ufs`(`id_uf`, `descrisao`) 
+VALUES ('1', 'SP'), ('2', 'RJ'), ('3', 'SA'), ('4', 'GO'), ('5', 'MG');
+
+====================================================================================================
+
+INSERT INTO `clientes` (`id_cliente`, `nome`, `cpf`, `rg`, `data_nascimento`, `telefone`, `end`, `id_cep`, `id_cidade`, `id_uf`, `email`) VALUES
+(1, 'Jose Bonitinho', '13033455', '44456774', '2003-11-10', '199987653', 'Rua A', 1, 1, 1, 'joseboni@gmail.com'),
+(2, 'Roberto Bonitinho', '13035477', '45673456', '1994-08-12', '199923553', 'Rua João Romariz', 1, 1, 1, 'robboni@gmail.com'),
+(3, 'Rafael Drummont', '12088678', '25349678', '1996-06-14', '1999465653', 'Avenida Brigadeiro Rafael Tobias de Aguiar', 2, 2, 2, 'rafadrum@hotmail.com'),
+(4, 'Matheus Martins', '44036755', '96783456', '2000-03-09', '198677653', 'Rua Marie Gabi', 3, 5, 3, 'martinsmatheus@outlook.com'),
+(5, 'Gabriele Cavalvanti', '18073905', '25340276', '2005-08-18', '199997853', 'Rua do Céu', 5, 4, 3, 'gabcavalcanti@hotmail.com');
+
+====================================================================================================
+
+INSERT INTO `fornecedores`(`id_fornecedor`, `nome`, `id_uf`, `id_cidade`, `id_cep`, `cnpj`) 
+VALUES ('1', 'Doritos', '1', '2', '3', '55346745'), 
+('2', 'Ruffles', '3', '2', '1', '55346745'), 
+('3', 'Cheetos', '4', '2', '2', '55346745'), 
+('4', 'Camp', '2', '5', '1', '55346745'), 
+('5', 'Moises caminhoes', '4', '5', '4', '55346745');
+
+====================================================================================================
+
+INSERT INTO `itens_venda`(`id_item`, `id_produto`, `id_venda`, `qtd`) 
+VALUES ('1', '1', '2', '4'), 
+('2', '2', '4', '5'), 
+('3', '5', '2', '5'),
+('4', '4', '3', '2'), 
+('5', '3', '2', '12'); 
+
+====================================================================================================
+
+INSERT INTO `marcas`(`id_marca`, `nome`) 
+VALUES ('1', 'Cheetos'), ('2', 'Ruffles'), ('3', 'Doritos'), ('4', 'Ype'), ('5', 'Dove');
+
+====================================================================================================
+
+INSERT INTO `produtos` (`id_produto`, `nome`, `descricao`, `validade`, `qtd`, `valor`, `id_marca`, `id_fornecedor`) VALUES
+(1, '55346745', 'Salgadinho Doritos', '2024-11-15', 10, 5, 3, 1),
+(2, '55346745', 'Salgadinho Cheetos', '2025-11-20', 5, 4, 1, 3),
+(3, '55346745', 'Salgadinho Ruffles', '2024-11-28', 35, 7, 2, 2),
+(4, '55346745', 'Sabonete Dove', '2023-11-24', 42, 12, 5, 4),
+(5, '55346745', 'Desinfetante Ype', '2023-11-24', 21, 23, 4, 5);
+
+====================================================================================================
+
+INSERT INTO `vendas` (`id_venda`, `id_cliente`, `data`) VALUES
+(1, 1, '2023-11-15'),
+(2, 2, '2023-09-06'),
+(3, 4, '2023-11-18'),
+(4, 3, '2023-11-12'),
+(5, 5, '2023-11-06');
