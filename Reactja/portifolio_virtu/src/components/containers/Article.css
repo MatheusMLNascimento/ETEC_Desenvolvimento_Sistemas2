@@ -1,0 +1,65 @@
+/* Article.css */
+
+/*article {
+    width:99.5%;
+    height:180px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Estilizando o título dentro do componente Article 
+  h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+    width:100%;
+    height:auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #666;
+    font-size: 18px;
+    width:100%;
+    height:auto;
+    text-align: center;
+  }*/
+
+  /* Article.css */
+
+article {
+    background-color: #292c36;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  article:hover {
+    background-color: #1a1c23;
+  }
+  
+  article h1 {
+    width:auto;
+    height:auto;
+    padding: 15px 0px 15px 1px;
+    color: #61dafb; /* Cor azul brilhante para o título */
+    font-size: 28px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  
+  article h2 {
+    width:auto;
+    height:auto;
+    border-radius: 5px;
+    text-align: center;
+    color: #424242; /* Cor cinza para o subtítulo */
+    font-size: 18px;
+  }
+  

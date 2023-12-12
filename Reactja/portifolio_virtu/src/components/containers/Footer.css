@@ -1,0 +1,43 @@
+/* Footer.css */
+
+footer {
+  width:99.5%;
+  margin: auto;
+  height:auto;
+  background-color: #121212; /* Cor de fundo preta */
+  color: #fff; /* Cor do texto branca */
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+h3 {
+  color: white;
+}
+
+footer a {
+  color: #8ce6ff; /* Cor dos links azul brilhante */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #339ed8; /* Cor dos links mais escura no hover */
+}
+
+footer p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin: 0 15px;
+  font-size: 24px;
+  color: #fff; /* Cor branca para ícones de redes sociais */
+}  

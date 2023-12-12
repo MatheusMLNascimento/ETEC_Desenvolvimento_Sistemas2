@@ -1,0 +1,32 @@
+header {
+    margin: 0;
+    float:center;
+    width:auto;
+    padding: 35px 0px 35px 0px;
+    height:auto;
+    border-radius: 4px;
+    background-color:rgb(150,200,255);
+    background-image:url(./img/clouds_pixelArt.png);
+    background-size: 366px;
+    border:1px solid #000;
+}
+
+/*img {
+    float:left;
+    width:150px;
+    height:auto;
+    min-width:150px;
+    margin:10px;
+}*/
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+    width:25%;
+    padding: 10px 0px 10px 0px;
+    border-radius: 3px;
+    min-width: 400px;
+    margin: auto;
+    text-align: center;
+}

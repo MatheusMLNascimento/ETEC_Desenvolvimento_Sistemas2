@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.parks{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(87, 129, 143);
+    margin: 0 10px 0 10px;
+    flex-wrap: wrap;
+    padding: 2px 0 2px 0;
+    justify-content: center;
+}
+
+.cachorro{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(87, 129, 143);
+    margin: 0 10px 0 10px;
+    flex-wrap: wrap;
+    padding: 2px 0 2px 0;
+    justify-content: center;
+}
+
+/*button{
+    
+    border: 5px solid lightslategray;
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}*/
+
+/*.cachorro{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 5px solid lightblue;
+    background-color: lightblue;
+    border-radius: 10px;
+    justify-content: center;
+}*/
+
+#title{
+    text-align: center;
+    background-color: bisque;
+    min-width: 1260px;
+}
+h2{
+    border: 2px solid rgb(118, 185, 207);
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(131, 196, 218);
+}
+
+button{
+    width: auto;
+    height: auto;
+    padding: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#bttn1{
+    
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+#bttn2{
+    
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+#bttn3{
+    
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+#bttn4{
+    
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+#bttn5{
+    
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+#bttn6{
+    
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: lightslategray;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+#style1{
+    
+    background-color: lightgreen;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid lightgreen;
+}
+
+#style2{
+    
+    background-color: purple;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid purple;
+}
+
+#style3{
+    
+    background-color: red;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid red;
+}
+
+#style4{
+    
+    background-color: orange;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid orange;
+}
+
+#style5{
+    
+    background-color: blue;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid blue;
+}
+
+#style6{
+       
+    background-color: green;
+    border-radius: 10px;
+    justify-content: space-around;
+    border: 4px solid green;
+}
